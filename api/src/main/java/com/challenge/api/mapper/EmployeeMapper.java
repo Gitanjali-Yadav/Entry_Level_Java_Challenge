@@ -4,17 +4,16 @@ import com.challenge.api.dto.request.CreateEmployeeRequest;
 import com.challenge.api.dto.response.EmployeeResponse;
 import com.challenge.api.model.Employee;
 import com.challenge.api.model.EmployeeImpl;
-import org.springframework.stereotype.Component;
-
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 
 @Component
 public class EmployeeMapper {
 
-    public EmployeeImpl toEmployee(CreateEmployeeRequest request){
+    public EmployeeImpl toEmployee(CreateEmployeeRequest request) {
         return EmployeeImpl.builder()
                 .uuid(UUID.randomUUID())
                 .firstName(request.getFirstName())
@@ -29,7 +28,7 @@ public class EmployeeMapper {
                 .build();
     }
 
-    public EmployeeResponse toResponse(Employee employee){
+    public EmployeeResponse toResponse(Employee employee) {
         return EmployeeResponse.builder()
                 .uuid(employee.getUuid())
                 .firstName(employee.getFirstName())
@@ -42,10 +41,9 @@ public class EmployeeMapper {
                 .contractHireDate(employee.getContractHireDate())
                 .contractTerminationDate(employee.getContractTerminationDate())
                 .build();
-
     }
 
-    public List<EmployeeResponse> toResponseList(List<Employee> employees){
+    public List<EmployeeResponse> toResponseList(List<Employee> employees) {
         return employees.stream().map(this::toResponse).collect(Collectors.toList());
     }
 }
