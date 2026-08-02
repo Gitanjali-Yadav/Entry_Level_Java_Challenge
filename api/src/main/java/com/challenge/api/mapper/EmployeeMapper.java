@@ -1,3 +1,51 @@
 package com.challenge.api.mapper;
 
-public class EmployeeMapper {}
+import com.challenge.api.dto.request.CreateEmployeeRequest;
+import com.challenge.api.dto.response.EmployeeResponse;
+import com.challenge.api.model.Employee;
+import com.challenge.api.model.EmployeeImpl;
+import org.springframework.stereotype.Component;
+
+import java.time.Instant;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+@Component
+public class EmployeeMapper {
+
+    public EmployeeImpl toEmployee(CreateEmployeeRequest request){
+        return EmployeeImpl.builder()
+                .uuid(UUID.randomUUID())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .fullName(request.getFirstName() + " " + request.getLastName())
+                .salary(request.getSalary())
+                .age(request.getAge())
+                .jobTitle(request.getJobTitle())
+                .email(request.getEmail())
+                .contractHireDate(Instant.now())
+                .contractTerminationDate(null)
+                .build();
+    }
+
+    public EmployeeResponse toResponse(Employee employee){
+        return EmployeeResponse.builder()
+                .uuid(employee.getUuid())
+                .firstName(employee.getFirstName())
+                .lastName(employee.getLastName())
+                .fullName(employee.getFullName())
+                .salary(employee.getSalary())
+                .age(employee.getAge())
+                .jobTitle(employee.getJobTitle())
+                .email(employee.getEmail())
+                .contractHireDate(employee.getContractHireDate())
+                .contractTerminationDate(employee.getContractTerminationDate())
+                .build();
+
+    }
+
+    public List<EmployeeResponse> toResponseList(List<Employee> employees){
+        return employees.stream().map(this::toResponse).collect(Collectors.toList());
+    }
+}

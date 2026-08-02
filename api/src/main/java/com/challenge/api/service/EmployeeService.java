@@ -1,3 +1,5 @@
 package com.challenge.api.service;
 
-public interface EmployeeService {}
+public interface EmployeeService {
+
+}
