@@ -4,9 +4,7 @@ import com.challenge.api.dto.request.CreateEmployeeRequest;
 import com.challenge.api.dto.response.EmployeeResponse;
 import com.challenge.api.model.Employee;
 import com.challenge.api.model.EmployeeImpl;
-import java.time.Instant;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
@@ -15,16 +13,12 @@ public class EmployeeMapper {
 
     public EmployeeImpl toEmployee(CreateEmployeeRequest request) {
         return EmployeeImpl.builder()
-                .uuid(UUID.randomUUID())
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
-                .fullName(request.getFirstName() + " " + request.getLastName())
                 .salary(request.getSalary())
                 .age(request.getAge())
                 .jobTitle(request.getJobTitle())
                 .email(request.getEmail())
-                .contractHireDate(Instant.now())
-                .contractTerminationDate(null)
                 .build();
     }
 
