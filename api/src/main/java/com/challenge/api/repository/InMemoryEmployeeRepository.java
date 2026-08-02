@@ -1,9 +1,12 @@
 package com.challenge.api.repository;
 
 import com.challenge.api.model.Employee;
+import org.springframework.stereotype.Repository;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Repository
 public class InMemoryEmployeeRepository implements EmployeeRepository {
 
     private final Map<UUID, Employee> employeeDataStorage = new ConcurrentHashMap<>();

@@ -2,6 +2,7 @@ package com.challenge.api.service;
 
 import com.challenge.api.dto.request.CreateEmployeeRequest;
 import com.challenge.api.dto.response.EmployeeResponse;
+import com.challenge.api.exception.EmployeeNotFoundException;
 import com.challenge.api.mapper.EmployeeMapper;
 import com.challenge.api.model.Employee;
 import com.challenge.api.repository.EmployeeRepository;
@@ -31,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeResponse getEmployeeByUuid(UUID uuid) {
         Employee employee = employeeRepository
                 .findById(uuid)
-                .orElseThrow(() -> new IllegalArgumentException("Employee not found with UUID: " + uuid));
+                .orElseThrow(() -> new EmployeeNotFoundException(uuid));
         return employeeMapper.toResponse(employee);
     }
 

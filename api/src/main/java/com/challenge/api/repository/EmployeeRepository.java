@@ -4,9 +4,8 @@ import com.challenge.api.model.Employee;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import org.springframework.stereotype.Repository;
 
-@Repository
+
 public interface EmployeeRepository {
 
     List<Employee> findAll();
