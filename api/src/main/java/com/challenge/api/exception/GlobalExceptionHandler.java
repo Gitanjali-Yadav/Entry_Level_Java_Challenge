@@ -1,4 +1,3 @@
 package com.challenge.api.exception;
 
-public class GlobalExceptionHandler {
-}
+public class GlobalExceptionHandler {}

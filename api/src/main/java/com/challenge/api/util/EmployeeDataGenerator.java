@@ -1,4 +1,3 @@
 package com.challenge.api.util;
 
-public class EmployeeDataGenerator {
-}
+public class EmployeeDataGenerator {}

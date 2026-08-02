@@ -1,4 +1,3 @@
 package com.challenge.api.exception;
 
-public class EmployeeNotFoundException {
-}
+public class EmployeeNotFoundException {}
