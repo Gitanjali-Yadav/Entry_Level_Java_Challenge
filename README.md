@@ -1,22 +1,23 @@
 # ReliaQuest's Entry-Level Java Challenge
 
 Please keep the following in mind while working on this challenge:
-* Code implementations will not be graded for **correctness** but rather on practicality
-* Articulate clear and concise design methodologies, if necessary
-* Use clean coding etiquette
-  * E.g. avoid liberal use of new-lines, odd variable and method names, random indentation, etc...
-* Test cases are not required
+
+- Code implementations will not be graded for **correctness** but rather on practicality
+- Articulate clear and concise design methodologies, if necessary
+- Use clean coding etiquette
+  - E.g. avoid liberal use of new-lines, odd variable and method names, random indentation, etc...
+- Test cases are not required
 
 ## Problem Statement
 
 Your employer has recently purchased a license to top-tier SaaS platform, Employees-R-US, to off-load all employee management responsibilities.
-Unfortunately, your company's product has an existing employee management solution that is tightly coupled to other services and therefore 
+Unfortunately, your company's product has an existing employee management solution that is tightly coupled to other services and therefore
 cannot be replaced whole-cloth. Product and Development leads in your department have decided it would be best to interface
 the existing employee management solution with the commercial offering from Employees-R-US for the time being until all employees can be
 migrated to the new SaaS platform.
 
 Your ask is to expose employee information as a protected, secure REST API for consumption by Employees-R-US web hooks.
-The initial REST API will consist of 3 endpoints, listed in the following section. If for any reason the implementation 
+The initial REST API will consist of 3 endpoints, listed in the following section. If for any reason the implementation
 of an endpoint is problematic, the team lead will accept **pseudo-code** and a pertinent description (e.g. java-doc) of intent.
 
 Good luck!
@@ -52,6 +53,80 @@ To format code according to style guidelines, you can run **spotlessApply** task
 
 The spotless plugin will also execute check-and-validation tasks as part of the gradle **build** task.
 `./gradlew build`
+
+# Getting Started
+
+## Prerequisites
+
+- Java 17
+- Gradle (Wrapper Included)
+
+## Build
+
+```bash
+./gradlew build
+```
+
+or on Windows
+
+```bash
+gradlew.bat build
+```
+
+## Run
+
+```bash
+./gradlew bootRun
+```
+
+or
+
+```bash
+gradlew.bat bootRun
+```
+
+The application runs on:
+
+```
+http://localhost:8080
+```
+
+# Testing the APIs
+
+Mock employee data is loaded automatically when the application starts, so the GET APIs can be tested immediately.
+
+### Get All Employees
+
+```
+GET http://localhost:8080/api/v1/employee
+```
+
+### Get Employee by UUID
+
+Use any UUID returned by the Get All Employees API.
+
+```
+GET http://localhost:8080/api/v1/employee/{uuid}
+```
+
+### Create Employee
+
+```
+POST http://localhost:8080/api/v1/employee
+```
+
+Sample Request
+
+```json
+{
+  "firstName": "Gitanjali",
+  "lastName": "Yadav",
+  "salary": 120000,
+  "age": 22,
+  "jobTitle": "Associate Software Engineer",
+  "email": "gitanjali.yadav@reliaquest.com"
+}
+```
 
 # Workflow Diagram of the Project
 
