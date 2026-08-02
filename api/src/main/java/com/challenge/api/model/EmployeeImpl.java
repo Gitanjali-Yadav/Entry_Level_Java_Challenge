@@ -1,17 +1,19 @@
 package com.challenge.api.model;
 
-import lombok.*;
-
 import java.time.Instant;
 import java.util.UUID;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class EmployeeImpl {
+public class EmployeeImpl implements Employee {
 
     private UUID uuid;
     private String firstName;
@@ -23,5 +25,4 @@ public class EmployeeImpl {
     private String email;
     private Instant contractHireDate;
     private Instant contractTerminationDate;
-
 }
