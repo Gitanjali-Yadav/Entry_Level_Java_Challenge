@@ -30,9 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeResponse getEmployeeByUuid(UUID uuid) {
-        Employee employee = employeeRepository
-                .findById(uuid)
-                .orElseThrow(() -> new EmployeeNotFoundException(uuid));
+        Employee employee = employeeRepository.findById(uuid).orElseThrow(() -> new EmployeeNotFoundException(uuid));
         return employeeMapper.toResponse(employee);
     }
 

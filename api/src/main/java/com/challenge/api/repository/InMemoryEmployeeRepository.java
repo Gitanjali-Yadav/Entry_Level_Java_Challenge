@@ -1,15 +1,21 @@
 package com.challenge.api.repository;
 
 import com.challenge.api.model.Employee;
-import org.springframework.stereotype.Repository;
-
+import com.challenge.api.util.EmployeeDataGenerator;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class InMemoryEmployeeRepository implements EmployeeRepository {
 
     private final Map<UUID, Employee> employeeDataStorage = new ConcurrentHashMap<>();
+
+    public InMemoryEmployeeRepository(EmployeeDataGenerator employeeDataGenerator) {
+        employeeDataGenerator
+                .generateEmployees()
+                .forEach(employee -> employeeDataStorage.put(employee.getUuid(), employee));
+    }
 
     @Override
     public List<Employee> findAll() {

@@ -2,9 +2,9 @@ package com.challenge.api.exception;
 
 import java.util.UUID;
 
-public class EmployeeNotFoundException extends RuntimeException{
+public class EmployeeNotFoundException extends RuntimeException {
 
-    public EmployeeNotFoundException(UUID uuid){
+    public EmployeeNotFoundException(UUID uuid) {
         super("Employee not found with UUID: " + uuid);
     }
 }
