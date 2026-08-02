@@ -53,6 +53,8 @@ To format code according to style guidelines, you can run **spotlessApply** task
 The spotless plugin will also execute check-and-validation tasks as part of the gradle **build** task.
 `./gradlew build`
 
+# Workflow Diagram of the Project
+
 ![img.png](img.png)
 
 # Project Structure
