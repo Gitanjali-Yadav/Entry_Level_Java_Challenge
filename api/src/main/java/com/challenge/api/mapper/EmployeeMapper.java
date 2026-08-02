@@ -8,6 +8,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
+/**
+ * Responsible for converting between
+ * DTOs and domain models.
+ *
+ * Business logic intentionally remains in the service layer.
+ */
 @Component
 public class EmployeeMapper {
 

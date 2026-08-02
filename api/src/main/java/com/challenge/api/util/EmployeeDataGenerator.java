@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.stereotype.Component;
 
+/**
+ * Generates mock employee data used to
+ * initialize the in-memory repository.
+ */
 @Component
 public class EmployeeDataGenerator {
 

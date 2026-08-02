@@ -39,6 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee employee = employeeMapper.toEmployee(request);
 
+        // Generate system-managed attributes before persisting the employee.
         employee.setUuid(UUID.randomUUID());
 
         employee.setFullName(request.getFirstName() + " " + request.getLastName());

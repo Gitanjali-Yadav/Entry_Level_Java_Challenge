@@ -8,6 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * Centralized exception handling for REST APIs.
+ *
+ * Converts application exceptions into
+ * meaningful HTTP responses.
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

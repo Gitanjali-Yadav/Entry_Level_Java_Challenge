@@ -12,6 +12,14 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Fill in the missing aspects of this Spring Web REST Controller. Don't forget to add a Service layer.
  */
+
+/**
+ * REST Controller exposing employee APIs for consumption
+ * by the Employees-R-US integration as per the given task.
+ *
+ * The controller delegates all business logic to the service layer
+ * and is responsible only for handling HTTP requests and responses.
+ */
 @RestController
 @RequestMapping("/api/v1/employee")
 public class EmployeeController {
@@ -28,7 +36,7 @@ public class EmployeeController {
      */
     @GetMapping
     public ResponseEntity<List<EmployeeResponse>> getAllEmployees() {
-
+        // retrieves all available employees
         return ResponseEntity.ok(employeeService.getAllEmployees());
 
         // throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
@@ -41,6 +49,7 @@ public class EmployeeController {
      */
     @GetMapping("/{uuid}")
     public ResponseEntity<EmployeeResponse> getEmployeeByUuid(@PathVariable UUID uuid) {
+        // retrieves a single employee by UUID.
         return ResponseEntity.ok(employeeService.getEmployeeByUuid(uuid));
         // throw new ResponseStatusException(HttpStatus.NOT_IMPLEMENTED);
     }
@@ -52,6 +61,7 @@ public class EmployeeController {
      */
     @PostMapping
     public ResponseEntity<EmployeeResponse> createEmployee(@RequestBody CreateEmployeeRequest request) {
+        // creates a new Employee
         EmployeeResponse employee = employeeService.createEmployee(request);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(employee);
